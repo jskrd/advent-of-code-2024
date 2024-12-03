@@ -8,4 +8,8 @@ $ go run cmd/app/main.go
 Day 1: Historian Hysteria
   Part One: 3508942
   Part Two: 26593248
+
+Day 2: Red-Nosed Reports
+  Part One: 279
+  Part Two: 343
 ```
