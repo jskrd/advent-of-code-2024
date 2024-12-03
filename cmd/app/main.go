@@ -5,6 +5,7 @@ import (
 
 	"github.com/jskrd/advent-of-code-2024/internal/day01"
 	"github.com/jskrd/advent-of-code-2024/internal/day02"
+	"github.com/jskrd/advent-of-code-2024/internal/day03"
 )
 
 type Puzzle struct {
@@ -16,6 +17,7 @@ func main() {
 	puzzles := []Puzzle{
 		{"Day 1: Historian Hysteria", day01.Solve},
 		{"Day 2: Red-Nosed Reports", day02.Solve},
+		{"Day 3: Mull It Over", day03.Solve},
 	}
 
 	for i, puzzle := range puzzles {

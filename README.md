@@ -12,4 +12,8 @@ Day 1: Historian Hysteria
 Day 2: Red-Nosed Reports
   Part One: 279
   Part Two: 343
+
+Day 3: Mull It Over
+  Part One: 182780583
+  Part Two: 90772405
 ```
