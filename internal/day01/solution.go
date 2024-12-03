@@ -8,15 +8,15 @@ import (
 )
 
 func Solve() (int, int) {
-	data, _ := os.ReadFile("internal/day01/input.txt")
+	input, _ := os.ReadFile("internal/day01/input.txt")
 
-	lines := strings.Split(string(data), "\n")
+	lists := parseInput(string(input))
 
-	return SolvePartOne(lines), SolvePartTwo(lines)
+	return solvePartOne(lists), solvePartTwo(lists)
 }
 
-func SolvePartOne(lines []string) int {
-	leftList, rightList := parseLists(lines)
+func solvePartOne(lists [][]int) int {
+	leftList, rightList := lists[0], lists[1]
 
 	sort.Ints(leftList)
 	sort.Ints(rightList)
@@ -40,8 +40,8 @@ func SolvePartOne(lines []string) int {
 	return sum
 }
 
-func SolvePartTwo(lines []string) int {
-	leftList, rightList := parseLists(lines)
+func solvePartTwo(lists [][]int) int {
+	leftList, rightList := lists[0], lists[1]
 
 	similarities := []int{}
 	for _, left := range leftList {
@@ -61,17 +61,15 @@ func SolvePartTwo(lines []string) int {
 	return sum
 }
 
-func parseLists(lines []string) ([]int, []int) {
-	leftList := []int{}
-	rightList := []int{}
-
-	for _, line := range lines {
+func parseInput(input string) [][]int {
+	lists := make([][]int, 2)
+	for _, line := range strings.Split(input, "\n") {
 		parts := strings.Split(line, "   ")
 		left, _ := strconv.Atoi(parts[0])
 		right, _ := strconv.Atoi(parts[1])
-		leftList = append(leftList, left)
-		rightList = append(rightList, right)
+		lists[0] = append(lists[0], left)
+		lists[1] = append(lists[1], right)
 	}
 
-	return leftList, rightList
+	return lists
 }
