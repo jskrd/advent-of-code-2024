@@ -16,4 +16,8 @@ Day 2: Red-Nosed Reports
 Day 3: Mull It Over
   Part One: 182780583
   Part Two: 90772405
+
+Day 4: Ceres Search
+  Part One: 2642
+  Part Two: 1974
 ```
