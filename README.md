@@ -20,4 +20,8 @@ Day 3: Mull It Over
 Day 4: Ceres Search
   Part One: 2642
   Part Two: 1974
+
+Day 5: Print Queue
+  Part One: 4637
+  Part Two: 6370
 ```
