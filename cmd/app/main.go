@@ -14,7 +14,7 @@ import (
 func main() {
 	day := flag.Int("day", 0, "The day of the puzzle to solve")
 	part := flag.Int("part", 0, "The part of the puzzle to solve")
-	input := flag.String("input", "", "The input for the puzzle")
+	input := flag.String("input", "", "The path to the input file")
 
 	flag.Parse()
 
