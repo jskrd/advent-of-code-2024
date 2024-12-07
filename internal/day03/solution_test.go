@@ -1,43 +1,25 @@
 package day03
 
 import (
+	"os"
 	"reflect"
 	"testing"
 )
 
-func TestSolvePartOne(t *testing.T) {
-	memory := []string{"mul(2,4)", "mul(5,5)", "mul(11,8)", "mul(8,5)"}
-
-	expected := 161
-	actual := solvePartOne(memory)
-
-	if expected != actual {
-		t.Errorf("Expected %d but got %d", expected, actual)
-	}
-}
-
-func TestSolvePartTwo(t *testing.T) {
-	memory := []string{"mul(2,4)", "don't()", "do()", "mul(8,5)"}
-
-	expected := 48
-	actual := solvePartTwo(memory)
-
-	if expected != actual {
-		t.Errorf("Expected %d but got %d", expected, actual)
-	}
-}
-
 func TestParseInput(t *testing.T) {
+	input1, _ := os.ReadFile("../../test/data/day03/input_example1.txt")
+	input2, _ := os.ReadFile("../../test/data/day03/input_example2.txt")
+
 	tests := []struct {
 		input    string
 		expected []string
 	}{
 		{
-			"xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))",
+			string(input1),
 			[]string{"mul(2,4)", "mul(5,5)", "mul(11,8)", "mul(8,5)"},
 		},
 		{
-			"xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))",
+			string(input2),
 			[]string{"mul(2,4)", "don't()", "mul(5,5)", "mul(11,8)", "do()", "mul(8,5)"},
 		},
 	}
@@ -47,5 +29,27 @@ func TestParseInput(t *testing.T) {
 		if !reflect.DeepEqual(test.expected, actual) {
 			t.Errorf("Expected %v but got %v", test.expected, actual)
 		}
+	}
+}
+
+func TestSolvePartOne(t *testing.T) {
+	input, _ := os.ReadFile("../../test/data/day03/input_example1.txt")
+
+	expected := 161
+	actual := SolvePartOne(string(input))
+
+	if expected != actual {
+		t.Errorf("Expected %d but got %d", expected, actual)
+	}
+}
+
+func TestSolvePartTwo(t *testing.T) {
+	input, _ := os.ReadFile("../../test/data/day03/input_example2.txt")
+
+	expected := 48
+	actual := SolvePartTwo(string(input))
+
+	if expected != actual {
+		t.Errorf("Expected %d but got %d", expected, actual)
 	}
 }

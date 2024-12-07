@@ -1,20 +1,18 @@
 package day03
 
 import (
-	"os"
 	"regexp"
 	"strconv"
 )
 
-func Solve() (int, int) {
-	input, _ := os.ReadFile("internal/day03/input.txt")
-
-	instructions := parseInput(string(input))
-
-	return solvePartOne(instructions), solvePartTwo(instructions)
+func parseInput(input string) []string {
+	re := regexp.MustCompile(`mul\([0-9]+,[0-9]+\)|do\(\)|don't\(\)`)
+	return re.FindAllString(input, -1)
 }
 
-func solvePartOne(instructions []string) int {
+func SolvePartOne(input string) int {
+	instructions := parseInput(input)
+
 	sum := 0
 	for _, instruction := range instructions {
 		if instruction[:3] == "mul" {
@@ -28,7 +26,9 @@ func solvePartOne(instructions []string) int {
 	return sum
 }
 
-func solvePartTwo(instructions []string) int {
+func SolvePartTwo(input string) int {
+	instructions := parseInput(input)
+
 	enabled := true
 	sum := 0
 	for _, instruction := range instructions {
@@ -51,9 +51,4 @@ func solvePartTwo(instructions []string) int {
 		}
 	}
 	return sum
-}
-
-func parseInput(input string) []string {
-	re := regexp.MustCompile(`mul\([0-9]+,[0-9]+\)|do\(\)|don't\(\)`)
-	return re.FindAllString(input, -1)
 }

@@ -1,21 +1,27 @@
 package day04
 
 import (
+	"os"
 	"reflect"
 	"testing"
 )
 
 func TestParseInput(t *testing.T) {
-	input := "..X...\n.SAMX.\n.A..A.\nXMAS.S\n.X...."
+	input, _ := os.ReadFile("../../test/data/day04/input_example.txt")
 
 	expected := [][]rune{
-		{'.', '.', 'X', '.', '.', '.'},
-		{'.', 'S', 'A', 'M', 'X', '.'},
-		{'.', 'A', '.', '.', 'A', '.'},
-		{'X', 'M', 'A', 'S', '.', 'S'},
-		{'.', 'X', '.', '.', '.', '.'},
+		{'M', 'M', 'M', 'S', 'X', 'X', 'M', 'A', 'S', 'M'},
+		{'M', 'S', 'A', 'M', 'X', 'M', 'S', 'M', 'S', 'A'},
+		{'A', 'M', 'X', 'S', 'X', 'M', 'A', 'A', 'M', 'M'},
+		{'M', 'S', 'A', 'M', 'A', 'S', 'M', 'S', 'M', 'X'},
+		{'X', 'M', 'A', 'S', 'A', 'M', 'X', 'A', 'M', 'M'},
+		{'X', 'X', 'A', 'M', 'M', 'X', 'X', 'A', 'M', 'A'},
+		{'S', 'M', 'S', 'M', 'S', 'A', 'S', 'X', 'S', 'S'},
+		{'S', 'A', 'X', 'A', 'M', 'A', 'S', 'A', 'A', 'A'},
+		{'M', 'A', 'M', 'M', 'M', 'X', 'M', 'M', 'M', 'M'},
+		{'M', 'X', 'M', 'X', 'A', 'X', 'M', 'A', 'S', 'X'},
 	}
-	actual := parseInput(input)
+	actual := parseInput(string(input))
 
 	if !reflect.DeepEqual(expected, actual) {
 		t.Errorf("Expected %v but got %v", expected, actual)
@@ -23,21 +29,10 @@ func TestParseInput(t *testing.T) {
 }
 
 func TestSolvePartOne(t *testing.T) {
-	grid := [][]rune{
-		{'.', '.', '.', '.', 'X', 'X', 'M', 'A', 'S', '.'},
-		{'.', 'S', 'A', 'M', 'X', 'M', 'S', '.', '.', '.'},
-		{'.', '.', '.', 'S', '.', '.', 'A', '.', '.', '.'},
-		{'.', '.', 'A', '.', 'A', '.', 'M', 'S', '.', 'X'},
-		{'X', 'M', 'A', 'S', 'A', 'M', 'X', '.', 'M', 'M'},
-		{'X', '.', '.', '.', '.', '.', 'X', 'A', '.', 'A'},
-		{'S', '.', 'S', '.', 'S', '.', 'S', '.', 'S', 'S'},
-		{'.', 'A', '.', 'A', '.', 'A', '.', 'A', '.', 'A'},
-		{'.', '.', 'M', '.', 'M', '.', 'M', '.', 'M', 'M'},
-		{'.', 'X', '.', 'X', '.', 'X', 'M', 'A', 'S', 'X'},
-	}
+	input, _ := os.ReadFile("../../test/data/day04/input_example.txt")
 
 	expected := 18
-	actual := solvePartOne(grid)
+	actual := SolvePartOne(string(input))
 
 	if expected != actual {
 		t.Errorf("Expected %d but got %d", expected, actual)
@@ -45,21 +40,10 @@ func TestSolvePartOne(t *testing.T) {
 }
 
 func TestSolvePartTwo(t *testing.T) {
-	grid := [][]rune{
-		{'.', 'M', '.', 'S', '.', '.', 'M', 'A', 'S', '.'},
-		{'.', 'S', 'A', 'M', '.', 'M', 'S', 'M', 'S', '.'},
-		{'.', 'M', '.', 'S', '.', 'M', 'A', 'A', '.', '.'},
-		{'.', '.', 'A', '.', 'A', 'S', 'M', 'S', 'M', '.'},
-		{'.', 'M', 'A', 'S', 'A', 'M', '.', '.', 'M', 'M'},
-		{'.', '.', '.', '.', '.', '.', '.', 'A', '.', 'A'},
-		{'S', '.', 'S', '.', 'S', '.', 'S', '.', 'S', 'S'},
-		{'.', 'A', '.', 'A', '.', 'A', '.', 'A', '.', 'A'},
-		{'M', '.', 'M', '.', 'M', '.', 'M', '.', 'M', 'M'},
-		{'.', '.', '.', '.', '.', '.', 'M', 'A', 'S', '.'},
-	}
+	input, _ := os.ReadFile("../../test/data/day04/input_example.txt")
 
 	expected := 9
-	actual := solvePartTwo(grid)
+	actual := SolvePartTwo(string(input))
 
 	if expected != actual {
 		t.Errorf("Expected %d but got %d", expected, actual)

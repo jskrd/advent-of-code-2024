@@ -1,20 +1,26 @@
 package day02
 
 import (
-	"os"
 	"strconv"
 	"strings"
 )
 
-func Solve() (int, int) {
-	input, _ := os.ReadFile("internal/day02/input.txt")
-
-	reports := parseInput(string(input))
-
-	return solvePartOne(reports), solvePartTwo(reports)
+func parseInput(input string) [][]int {
+	reports := [][]int{}
+	for _, line := range strings.Split(input, "\n") {
+		report := []int{}
+		for _, num := range strings.Split(line, " ") {
+			level, _ := strconv.Atoi(num)
+			report = append(report, level)
+		}
+		reports = append(reports, report)
+	}
+	return reports
 }
 
-func solvePartOne(reports [][]int) int {
+func SolvePartOne(input string) int {
+	reports := parseInput(input)
+
 	count := 0
 	for _, report := range reports {
 		if isSafe(report) {
@@ -24,7 +30,9 @@ func solvePartOne(reports [][]int) int {
 	return count
 }
 
-func solvePartTwo(reports [][]int) int {
+func SolvePartTwo(input string) int {
+	reports := parseInput(input)
+
 	count := 0
 	for _, report := range reports {
 		if isSafe(report) {
@@ -41,19 +49,6 @@ func solvePartTwo(reports [][]int) int {
 		}
 	}
 	return count
-}
-
-func parseInput(input string) [][]int {
-	reports := [][]int{}
-	for _, line := range strings.Split(input, "\n") {
-		report := []int{}
-		for _, num := range strings.Split(line, " ") {
-			level, _ := strconv.Atoi(num)
-			report = append(report, level)
-		}
-		reports = append(reports, report)
-	}
-	return reports
 }
 
 func isSafe(report []int) bool {

@@ -1,7 +1,6 @@
 package day05
 
 import (
-	"os"
 	"slices"
 	"strconv"
 	"strings"
@@ -10,14 +9,6 @@ import (
 type parsedInput struct {
 	orderings [][2]int
 	updates   [][]int
-}
-
-func Solve() (int, int) {
-	input, _ := os.ReadFile("internal/day05/input.txt")
-
-	parsedInput := parseInput(string(input))
-
-	return solvePartOne(parsedInput), solvePartTwo(parsedInput)
 }
 
 func parseInput(input string) parsedInput {
@@ -45,7 +36,9 @@ func parseInput(input string) parsedInput {
 	return parsedInput{orderings, pages}
 }
 
-func solvePartOne(parsedInput parsedInput) int {
+func SolvePartOne(input string) int {
+	parsedInput := parseInput(input)
+
 	sum := 0
 	for _, update := range parsedInput.updates {
 		if isCorrectOrdering(parsedInput.orderings, update) {
@@ -55,7 +48,9 @@ func solvePartOne(parsedInput parsedInput) int {
 	return sum
 }
 
-func solvePartTwo(parsedInput parsedInput) int {
+func SolvePartTwo(input string) int {
+	parsedInput := parseInput(input)
+
 	sum := 0
 	for _, update := range parsedInput.updates {
 		if !isCorrectOrdering(parsedInput.orderings, update) {

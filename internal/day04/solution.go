@@ -1,17 +1,8 @@
 package day04
 
 import (
-	"os"
 	"strings"
 )
-
-func Solve() (int, int) {
-	input, _ := os.ReadFile("internal/day04/input.txt")
-
-	grid := parseInput(string(input))
-
-	return solvePartOne(grid), solvePartTwo(grid)
-}
 
 func parseInput(input string) [][]rune {
 	lines := strings.Split(input, "\n")
@@ -24,7 +15,9 @@ func parseInput(input string) [][]rune {
 	return grid
 }
 
-func solvePartOne(grid [][]rune) int {
+func SolvePartOne(input string) int {
+	grid := parseInput(input)
+
 	count := 0
 	for row := 0; row < len(grid); row++ {
 		for col := 0; col < len(grid[row]); col++ {
@@ -61,7 +54,9 @@ func solvePartOne(grid [][]rune) int {
 	return count
 }
 
-func solvePartTwo(grid [][]rune) int {
+func SolvePartTwo(input string) int {
+	grid := parseInput(input)
+
 	count := 0
 	for row := 0; row < len(grid); row++ {
 		for col := 0; col < len(grid[row]); col++ {

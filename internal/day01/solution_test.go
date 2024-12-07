@@ -1,20 +1,30 @@
 package day01
 
 import (
+	"os"
 	"reflect"
 	"testing"
 )
 
-const input = "3   4\n4   3\n2   5\n1   3\n3   9\n3   3"
+func TestParseInput(t *testing.T) {
+	input, _ := os.ReadFile("../../test/data/day01/input_example.txt")
 
-func TestSolvePartOne(t *testing.T) {
-	lists := [][]int{
+	expected := [][]int{
 		{3, 4, 2, 1, 3, 3},
 		{4, 3, 5, 3, 9, 3},
 	}
+	actual := parseInput(string(input))
+
+	if !reflect.DeepEqual(expected, actual) {
+		t.Errorf("Expected %v but got %v", expected, actual)
+	}
+}
+
+func TestSolvePartOne(t *testing.T) {
+	input, _ := os.ReadFile("../../test/data/day01/input_example.txt")
 
 	expected := 11
-	actual := solvePartOne(lists)
+	actual := SolvePartOne(string(input))
 
 	if expected != actual {
 		t.Errorf("Expected %d but got %d", expected, actual)
@@ -22,29 +32,12 @@ func TestSolvePartOne(t *testing.T) {
 }
 
 func TestSolvePartTwo(t *testing.T) {
-	lists := [][]int{
-		{3, 4, 2, 1, 3, 3},
-		{4, 3, 5, 3, 9, 3},
-	}
+	input, _ := os.ReadFile("../../test/data/day01/input_example.txt")
 
 	expected := 31
-	actual := solvePartTwo(lists)
+	actual := SolvePartTwo(string(input))
 
 	if expected != actual {
 		t.Errorf("Expected %d but got %d", expected, actual)
-	}
-}
-
-func TestParseInput(t *testing.T) {
-	input := "3   4\n4   3\n2   5\n1   3\n3   9\n3   3"
-
-	expected := [][]int{
-		{3, 4, 2, 1, 3, 3},
-		{4, 3, 5, 3, 9, 3},
-	}
-	actual := parseInput(input)
-
-	if !reflect.DeepEqual(expected, actual) {
-		t.Errorf("Expected %v but got %v", expected, actual)
 	}
 }
