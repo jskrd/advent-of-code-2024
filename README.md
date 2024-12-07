@@ -1,8 +1,8 @@
 # 🎁 Advent of Code 2024 🎁
 
-[![Test](https://github.com/jskrd/advent-of-code-2024/actions/workflows/test.yml/badge.svg)](https://github.com/jskrd/advent-of-code-2024/actions/workflows/test.yml)
+[![Test](https://github.com/jskrd/advent-of-code-2024/actions/workflows/release.yml/badge.svg)](https://github.com/jskrd/advent-of-code-2024/actions/workflows/release.yml)
 
 ```sh
-$ go run cmd/aoc24/main.go -day=1 -part=1 -input=input.txt
+$ ./aoc24 -day=1 -part=1 -input=input.txt
 3508942
 ```
