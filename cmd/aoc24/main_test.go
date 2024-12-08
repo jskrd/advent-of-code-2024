@@ -4,10 +4,10 @@ import "testing"
 
 func TestSolve(t *testing.T) {
 	tests := []struct {
-		day    int
-		part   int
-		input  string
-		expect int
+		day      int
+		part     int
+		input    string
+		expected int
 	}{
 		{1, 1, "../../test/data/day01/input.txt", 3508942},
 		{1, 2, "../../test/data/day01/input.txt", 26593248},
@@ -23,8 +23,8 @@ func TestSolve(t *testing.T) {
 
 	for _, test := range tests {
 		actual := solve(test.day, test.part, test.input)
-		if test.expect != actual {
-			t.Errorf("Expected %d but got %d", test.expect, actual)
+		if test.expected != actual {
+			t.Errorf("Expected %d but got %d", test.expected, actual)
 		}
 	}
 }
