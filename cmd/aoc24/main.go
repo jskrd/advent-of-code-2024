@@ -9,6 +9,7 @@ import (
 	"github.com/jskrd/advent-of-code-2024/internal/day03"
 	"github.com/jskrd/advent-of-code-2024/internal/day04"
 	"github.com/jskrd/advent-of-code-2024/internal/day05"
+	"github.com/jskrd/advent-of-code-2024/internal/day06"
 )
 
 func main() {
@@ -29,6 +30,7 @@ func solve(day int, part int, input string) int {
 		{day03.SolvePartOne, day03.SolvePartTwo},
 		{day04.SolvePartOne, day04.SolvePartTwo},
 		{day05.SolvePartOne, day05.SolvePartTwo},
+		{day06.SolvePartOne, day06.SolvePartTwo},
 	}
 
 	if day < 1 || day > len(puzzles) {

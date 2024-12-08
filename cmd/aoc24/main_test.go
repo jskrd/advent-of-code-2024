@@ -19,6 +19,8 @@ func TestSolve(t *testing.T) {
 		{4, 2, "../../test/data/day04/input.txt", 1974},
 		{5, 1, "../../test/data/day05/input.txt", 4637},
 		{5, 2, "../../test/data/day05/input.txt", 6370},
+		{6, 1, "../../test/data/day06/input.txt", 5145},
+		{6, 2, "../../test/data/day06/input.txt", 1523},
 	}
 
 	for _, test := range tests {
